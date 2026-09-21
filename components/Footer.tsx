@@ -27,7 +27,7 @@ export default function Footer() {
           Can’t wait to celebrate with you! <span aria-hidden="true">💗</span>
         </p>
         <p className="mt-4 text-xs font-medium uppercase tracking-[0.3em] text-ink-soft sm:text-sm">
-          Marissa’s 60th Birthday · October 11, 2026
+          Mariz’s 60th Birthday · October 11, 2026
         </p>
         <p className="mt-3 text-xs font-semibold uppercase tracking-[0.35em] text-rose-deep sm:text-sm">
           {EVENT.rsvp}

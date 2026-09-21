@@ -136,7 +136,7 @@ export default function Hero() {
           variants={item}
           className="mt-2 font-script text-[clamp(3rem,10vw,6.5rem)] leading-[1.1] text-rose-deep"
         >
-          Marissa Turns 60!
+          Mariz Turns 60!
         </motion.p>
 
         <motion.p

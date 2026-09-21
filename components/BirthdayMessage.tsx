@@ -34,7 +34,7 @@ export default function BirthdayMessage() {
             id="message-title"
             className="mt-6 font-display text-[clamp(2.6rem,7vw,5rem)] font-medium leading-[1.02] text-balance text-ink"
           >
-            60 Looks Good on You, <span className="italic text-rose-deep">Marissa!</span>
+            60 Looks Good on You, <span className="italic text-rose-deep">Mariz!</span>
           </h2>
         </Reveal>
         <Reveal delay={0.22}>

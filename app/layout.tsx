@@ -24,11 +24,11 @@ const script = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Pickle & Party: Marissa Turns 60!",
-  description: "Join us for Marissa’s 60th birthday celebration at Zions Pickleball.",
+  title: "Pickle & Party: Mariz Turns 60!",
+  description: "Join us for Mariz’s 60th birthday celebration at Zions Pickleball.",
   openGraph: {
-    title: "Pickle & Party: Marissa Turns 60!",
-    description: "Join us for Marissa’s 60th birthday celebration at Zions Pickleball.",
+    title: "Pickle & Party: Mariz Turns 60!",
+    description: "Join us for Mariz’s 60th birthday celebration at Zions Pickleball.",
     type: "website",
   },
 };

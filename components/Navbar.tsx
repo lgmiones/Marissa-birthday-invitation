@@ -57,7 +57,7 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         >
           <Pickleball tone="pistachio" className="size-7" />
-          <span className="font-script text-2xl leading-none text-rose-deep">Marissa · 60</span>
+          <span className="font-script text-2xl leading-none text-rose-deep">Mariz · 60</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">

@@ -188,7 +188,7 @@ export default function IntroOverlay({ onEnter }: { onEnter: () => void }) {
           {...fadeUp(3.1)}
           className="mt-3 font-display text-3xl italic text-ink-soft sm:text-4xl"
         >
-          Marissa Turns 60!
+          Mariz Turns 60!
         </motion.p>
 
         <motion.div

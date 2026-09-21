@@ -12,7 +12,7 @@ interface TimelineEntry {
 const SCHEDULE: TimelineEntry[] = [
   { time: "5:00 PM", title: "Party Begins", note: "Arrive, say hello, and find your doubles partner.", icon: Sparkles },
   { time: "6:30 PM", title: "Pickleball Fun", note: "Paddles up — friendly games for every level.", icon: CircleDot },
-  { time: "8:00 PM", title: "Birthday Celebration", note: "Toasts, cheers, and a birthday serenade for Marissa.", icon: Gift },
+  { time: "8:00 PM", title: "Birthday Celebration", note: "Toasts, cheers, and a birthday serenade for Mariz.", icon: Gift },
   { time: "9:00 PM", title: "More Games & Good Times", note: "Rematches, music, and great company.", icon: Music },
   { time: "10:00 PM", title: "Party Ends", note: "Hugs, goodbyes, and happy memories.", icon: Heart },
 ];
@@ -24,7 +24,7 @@ export default function Timeline() {
         id="party-title"
         eyebrow="the evening"
         title="The Party"
-        description="An evening of rallies, laughter, and celebrating Marissa."
+        description="An evening of rallies, laughter, and celebrating Mariz."
       />
 
       <ol className="relative mx-auto mt-16 max-w-4xl">

@@ -15,9 +15,9 @@ export interface EventInfo {
 }
 
 export const EVENT: EventInfo = {
-  title: "Pickle & Party: Marissa Turns 60!",
-  honoree: "Marissa",
-  occasion: "Marissa’s 60th Birthday",
+  title: "Pickle & Party: Mariz Turns 60!",
+  honoree: "Mariz",
+  occasion: "Mariz’s 60th Birthday",
   dateLabel: "October 11, 2026",
   dayLabel: "Sunday",
   timeLabel: "5:00 PM – 10:00 PM",
