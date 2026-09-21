@@ -5,6 +5,7 @@ export interface EventInfo {
   dateLabel: string;
   dayLabel: string;
   timeLabel: string;
+  startLabel: string;
   venue: string;
   attire: string;
   note: string;
@@ -19,12 +20,13 @@ export const EVENT: EventInfo = {
   occasion: "Marissa’s 60th Birthday",
   dateLabel: "October 11, 2026",
   dayLabel: "Sunday",
-  timeLabel: "6:00 PM – 10:00 PM",
+  timeLabel: "5:00 PM – 10:00 PM",
+  startLabel: "5:00 PM",
   venue: "Zions Pickleball",
   attire: "Sport’s Attire",
   note: "Bring your own paddle",
   rsvp: "Strictly RSVP",
-  startISO: "2026-10-11T18:00:00",
+  startISO: "2026-10-11T17:00:00",
 };
 
 export interface NavLink {

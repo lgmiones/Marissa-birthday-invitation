@@ -10,7 +10,7 @@ interface TimelineEntry {
 }
 
 const SCHEDULE: TimelineEntry[] = [
-  { time: "6:00 PM", title: "Party Begins", note: "Arrive, say hello, and find your doubles partner.", icon: Sparkles },
+  { time: "5:00 PM", title: "Party Begins", note: "Arrive, say hello, and find your doubles partner.", icon: Sparkles },
   { time: "6:30 PM", title: "Pickleball Fun", note: "Paddles up — friendly games for every level.", icon: CircleDot },
   { time: "8:00 PM", title: "Birthday Celebration", note: "Toasts, cheers, and a birthday serenade for Marissa.", icon: Gift },
   { time: "9:00 PM", title: "More Games & Good Times", note: "Rematches, music, and great company.", icon: Music },

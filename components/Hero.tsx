@@ -152,7 +152,7 @@ export default function Hero() {
         >
           <li className="flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 ring-1 ring-blush/60 backdrop-blur">
             <CalendarDays className="size-4 text-rose-deep" aria-hidden="true" />
-            {EVENT.dayLabel}, {EVENT.dateLabel} · 6 PM
+            {EVENT.dayLabel}, {EVENT.dateLabel} · {EVENT.startLabel}
           </li>
           <li className="flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 ring-1 ring-sage-light backdrop-blur">
             <MapPin className="size-4 text-ink-soft" aria-hidden="true" />

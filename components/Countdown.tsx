@@ -82,7 +82,7 @@ export default function Countdown() {
           id="countdown-title"
           eyebrow="counting down"
           title="Until We Serve"
-          description={`${EVENT.dayLabel}, ${EVENT.dateLabel} · 6:00 PM`}
+          description={`${EVENT.dayLabel}, ${EVENT.dateLabel} · ${EVENT.startLabel}`}
         />
 
         {left?.done ? (
