@@ -12,6 +12,7 @@ export interface EventInfo {
   rsvp: string;
   /** Party start, interpreted in the guest's local time zone. */
   startISO: string;
+  venueLabel: string;
 }
 
 export const EVENT: EventInfo = {
@@ -23,7 +24,8 @@ export const EVENT: EventInfo = {
   timeLabel: "5:00 PM – 10:00 PM",
   startLabel: "5:00 PM",
   venue: "Zions Pickleball",
-  attire: "Sport’s Attire",
+  venueLabel: "Celadon Town, Pajac, Lapu-Lapu City, Cebu",
+  attire: "Sports Attire",
   note: "Bring your own paddle",
   rsvp: "Strictly RSVP",
   startISO: "2026-10-11T17:00:00",

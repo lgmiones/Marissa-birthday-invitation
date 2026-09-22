@@ -5,7 +5,7 @@ import { Floating, Reveal, Stagger, StaggerItem } from "./ui/Motion";
 
 const PERKS = [
   { icon: CircleDot, text: "Bring your own paddle" },
-  { icon: Shirt, text: "Sport’s attire, your way" },
+  { icon: Shirt, text: "Sports attire, your way" },
   { icon: Sparkles, text: "Every skill level welcome" },
 ];
 

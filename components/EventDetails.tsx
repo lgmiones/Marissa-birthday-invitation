@@ -16,7 +16,7 @@ interface DetailCard {
 const CARDS: DetailCard[] = [
   { label: "What", title: EVENT.occasion, icon: PartyPopper, tone: "pink" },
   { label: "When", title: EVENT.dateLabel, sub: EVENT.timeLabel, icon: CalendarDays, tone: "sage" },
-  { label: "Where", title: EVENT.venue, icon: MapPin, tone: "cream" },
+  { label: "Where", title: EVENT.venue, sub: EVENT.venueLabel, icon: MapPin, tone: "cream" },
   { label: "Wear", title: EVENT.attire, icon: Shirt, tone: "sage" },
   { label: "Don’t Forget", title: EVENT.note, icon: CircleDot, tone: "pink" },
   { label: "RSVP", title: EVENT.rsvp, sub: "Kindly confirm your attendance", icon: MailCheck, tone: "cream" },
