@@ -143,7 +143,7 @@ export default function Hero() {
           variants={item}
           className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-pretty text-ink-soft sm:text-lg"
         >
-          Come celebrate 60 fabulous years with pickleball, laughter, and a whole lot of fun!
+          Come celebrate Mariz' 60 fabulous years with pickleball, laughter, and a whole lot of fun!
         </motion.p>
 
         <motion.ul

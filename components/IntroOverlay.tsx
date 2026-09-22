@@ -171,7 +171,7 @@ export default function IntroOverlay({ onEnter }: { onEnter: () => void }) {
         </div>
 
         <motion.p {...fadeUp(1.9)} className="font-script text-5xl leading-tight text-rose-deep sm:text-6xl">
-          You’re Invited
+          You’re Invited!
         </motion.p>
 
         <motion.h1
