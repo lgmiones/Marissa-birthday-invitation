@@ -39,7 +39,7 @@ const CARDS: DetailCard[] = [
     cta: "See outfit ideas",
   },
   { label: "Don’t Forget", title: EVENT.note, icon: CircleDot, tone: "pink" },
-  { label: "RSVP", title: EVENT.rsvp, sub: "Kindly confirm your attendance", icon: MailCheck, tone: "cream" },
+  { label: "RSVP", title: EVENT.rsvp, sub: `Please contact ${EVENT.rsvpContacts} before ${EVENT.rsvpDeadline}`, icon: MailCheck, tone: "cream" },
 ];
 
 const TONES: Record<Tone, { card: string; icon: string; orb: string }> = {

@@ -164,6 +164,13 @@ export default function Hero() {
           </li>
         </motion.ul>
 
+        <motion.p variants={item} className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-pretty text-ink-soft">
+          Please contact <span className="font-semibold text-rose-deep">{EVENT.rsvpContacts}</span>{" "}
+          <span className="whitespace-nowrap">
+            before <span className="font-semibold text-rose-deep">{EVENT.rsvpDeadline}</span>.
+          </span>
+        </motion.p>
+
         <motion.div
           variants={item}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"

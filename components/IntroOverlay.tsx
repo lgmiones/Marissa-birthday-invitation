@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { EVENT } from "@/lib/event";
+import { PhotoFan, PhotoSides } from "./intro/MarizPhotos";
 import { Blob, CourtArcs, Paddle, Pickleball } from "./ui/Illustrations";
 import { EASE_LUXE } from "./ui/Motion";
 import { PillButton } from "./ui/PillButton";
@@ -125,114 +126,122 @@ export default function IntroOverlay({ onEnter }: { onEnter: () => void }) {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center px-6 text-center">
-        {/* Bouncing pickleball + paddle */}
-        <div className="relative mb-4 flex h-24 items-end justify-center sm:h-28" aria-hidden="true">
-          <motion.div
-            initial={{ x: "-60vw", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ x: { duration: at(2), ease: [0.25, 0.8, 0.4, 1], delay: at(0.5) }, opacity: { duration: 0.3, delay: at(0.5) } }}
-          >
+      {/* Mariz, framed in arches either side of the headline (large screens) */}
+      <PhotoSides at={at} />
+
+      {/* Content — scrolls on very short screens instead of clipping */}
+      <div className="absolute inset-0 z-10 flex overflow-y-auto overscroll-contain">
+        <div className="relative m-auto flex w-full max-w-3xl flex-col items-center px-6 py-10 text-center">
+          {/* Mariz, fanned above the headline (phones & tablets) */}
+          <PhotoFan at={at} />
+
+          {/* Bouncing pickleball + paddle */}
+          <div className="relative mb-4 hidden h-28 items-end justify-center xl:flex" aria-hidden="true">
             <motion.div
-              initial={{ y: -150 }}
-              animate={{ y: [-150, 0, -80, 0, -34, 0, -10, 0] }}
-              transition={{
-                duration: at(2),
-                delay: at(0.5),
-                times: [0, 0.28, 0.46, 0.62, 0.74, 0.85, 0.93, 1],
-                ease: ["easeIn", "easeOut", "easeIn", "easeOut", "easeIn", "easeOut", "easeIn"],
-              }}
+              initial={{ x: "-60vw", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ x: { duration: at(2), ease: [0.25, 0.8, 0.4, 1], delay: at(0.5) }, opacity: { duration: 0.3, delay: at(0.5) } }}
             >
               <motion.div
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 720 }}
-                transition={{ duration: at(2), delay: at(0.5), ease: "easeOut" }}
+                initial={{ y: -150 }}
+                animate={{ y: [-150, 0, -80, 0, -34, 0, -10, 0] }}
+                transition={{
+                  duration: at(2),
+                  delay: at(0.5),
+                  times: [0, 0.28, 0.46, 0.62, 0.74, 0.85, 0.93, 1],
+                  ease: ["easeIn", "easeOut", "easeIn", "easeOut", "easeIn", "easeOut", "easeIn"],
+                }}
               >
-                <Pickleball tone="pistachio" className="size-14 drop-shadow-md sm:size-16" />
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 720 }}
+                  transition={{ duration: at(2), delay: at(0.5), ease: "easeOut" }}
+                >
+                  <Pickleball tone="pistachio" className="size-14 drop-shadow-md sm:size-16" />
+                </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
+
+            <motion.div
+              className="-ml-1 origin-bottom"
+              initial={{ opacity: 0, rotate: 60, x: 30 }}
+              animate={{ opacity: 1, rotate: 18, x: 0 }}
+              transition={{ duration: 0.9, ease: EASE_LUXE, delay: at(3.3) }}
+            >
+              <motion.div
+                className="origin-bottom"
+                animate={{ rotate: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: at(4.2) }}
+              >
+                <Paddle tone="blush" className="h-24 drop-shadow-md sm:h-28" />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <motion.p {...fadeUp(1.9)} className="font-script text-5xl leading-tight text-rose-deep sm:text-6xl">
+            You’re Invited!
+          </motion.p>
+
+          <motion.h1
+            id="intro-title"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, ease: EASE_LUXE, delay: at(2.5) }}
+            className="mt-1 font-display text-[clamp(3.2rem,12vw,7rem)] font-medium leading-[0.95] tracking-tight text-ink"
+          >
+            Pickle <span className="font-script text-[0.8em] font-normal text-rose-deep">&amp;</span> Party
+          </motion.h1>
+
+          <motion.p
+            {...fadeUp(3.1)}
+            className="mt-3 font-display text-3xl italic text-ink-soft sm:text-4xl"
+          >
+            Mariz Turns 60!
+          </motion.p>
 
           <motion.div
-            className="-ml-1 origin-bottom"
-            initial={{ opacity: 0, rotate: 60, x: 30 }}
-            animate={{ opacity: 1, rotate: 18, x: 0 }}
-            transition={{ duration: 0.9, ease: EASE_LUXE, delay: at(3.3) }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 1, ease: EASE_LUXE, delay: at(3.5) }}
+            className="mt-6 flex items-center gap-3"
+            aria-hidden="true"
           >
-            <motion.div
-              className="origin-bottom"
-              animate={{ rotate: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: at(4.2) }}
-            >
-              <Paddle tone="blush" className="h-24 drop-shadow-md sm:h-28" />
-            </motion.div>
+            <span className="h-px w-14 bg-linear-to-r from-transparent to-rose-deep/60" />
+            <span className="size-1.5 rounded-full bg-sage" />
+            <span className="h-px w-14 bg-linear-to-l from-transparent to-rose-deep/60" />
+          </motion.div>
+
+          <motion.p
+            id="intro-desc"
+            {...fadeUp(3.6)}
+            className="mt-4 flex flex-col items-center gap-1 text-xs font-medium uppercase tracking-[0.32em] text-ink-soft sm:flex-row sm:gap-3 sm:text-sm"
+          >
+            <span>{EVENT.dateLabel}</span>
+            <span aria-hidden="true" className="hidden sm:inline">
+              ·
+            </span>
+            <span>{EVENT.venue}</span>
+          </motion.p>
+
+          <motion.p
+            {...fadeUp(3.8)}
+            className="mt-4 rounded-full border border-rose-deep/40 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-rose-deep sm:text-xs"
+          >
+            {EVENT.rsvp}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: EASE_LUXE, delay: at(4) }}
+            className="mt-9"
+          >
+            <PillButton buttonRef={buttonRef} onClick={onEnter} className="px-9 text-base">
+              Enter the Party
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </PillButton>
           </motion.div>
         </div>
-
-        <motion.p {...fadeUp(1.9)} className="font-script text-5xl leading-tight text-rose-deep sm:text-6xl">
-          You’re Invited!
-        </motion.p>
-
-        <motion.h1
-          id="intro-title"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease: EASE_LUXE, delay: at(2.5) }}
-          className="mt-1 font-display text-[clamp(3.2rem,12vw,7rem)] font-medium leading-[0.95] tracking-tight text-ink"
-        >
-          Pickle <span className="font-script text-[0.8em] font-normal text-rose-deep">&amp;</span> Party
-        </motion.h1>
-
-        <motion.p
-          {...fadeUp(3.1)}
-          className="mt-3 font-display text-3xl italic text-ink-soft sm:text-4xl"
-        >
-          Mariz Turns 60!
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 1, ease: EASE_LUXE, delay: at(3.5) }}
-          className="mt-6 flex items-center gap-3"
-          aria-hidden="true"
-        >
-          <span className="h-px w-14 bg-linear-to-r from-transparent to-rose-deep/60" />
-          <span className="size-1.5 rounded-full bg-sage" />
-          <span className="h-px w-14 bg-linear-to-l from-transparent to-rose-deep/60" />
-        </motion.div>
-
-        <motion.p
-          id="intro-desc"
-          {...fadeUp(3.6)}
-          className="mt-4 flex flex-col items-center gap-1 text-xs font-medium uppercase tracking-[0.32em] text-ink-soft sm:flex-row sm:gap-3 sm:text-sm"
-        >
-          <span>{EVENT.dateLabel}</span>
-          <span aria-hidden="true" className="hidden sm:inline">
-            ·
-          </span>
-          <span>{EVENT.venue}</span>
-        </motion.p>
-
-        <motion.p
-          {...fadeUp(3.8)}
-          className="mt-4 rounded-full border border-rose-deep/40 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-rose-deep sm:text-xs"
-        >
-          {EVENT.rsvp}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: EASE_LUXE, delay: at(4) }}
-          className="mt-9"
-        >
-          <PillButton buttonRef={buttonRef} onClick={onEnter} className="px-9 text-base">
-            Enter the Party
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </PillButton>
-        </motion.div>
       </div>
     </motion.div>
   );

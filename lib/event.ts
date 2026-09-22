@@ -10,6 +10,9 @@ export interface EventInfo {
   attire: string;
   note: string;
   rsvp: string;
+  /** People guests should RSVP to. */
+  rsvpContacts: string;
+  rsvpDeadline: string;
   /** Party start, interpreted in the guest's local time zone. */
   startISO: string;
   venueLabel: string;
@@ -28,6 +31,8 @@ export const EVENT: EventInfo = {
   attire: "Sports Attire",
   note: "Bring your own paddle",
   rsvp: "Strictly RSVP",
+  rsvpContacts: "Nova, Maymay & Mariz",
+  rsvpDeadline: "October 10",
   startISO: "2026-10-11T17:00:00",
 };
 
