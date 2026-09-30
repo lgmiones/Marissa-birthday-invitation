@@ -102,17 +102,15 @@ export function PhotoFan({ at }: { at: (s: number) => number }) {
           crop="object-[50%_0%] origin-[51%_16%] scale-[1.45] translate-y-[16%]" />
       </motion.div>
       <motion.div {...rise(at(0.7), 0)} className="relative z-10 -mb-1 w-[min(31vw,19svh,150px)] sm:w-[min(25vw,20svh,205px)]">
-        <ArchPhoto photo={MARIZ_PHOTOS.paddle} sizes="(min-width: 640px) 205px, 150px" crop="object-[50%_35%] scale-[1.35]" />
-      </motion.div>
-      <motion.div {...rise(at(1.1), 9)} className="relative z-0 -ml-3 w-[min(25vw,15svh,120px)] sm:w-[min(20vw,16svh,165px)] origin-bottom-left">
-        <ArchPhoto photo={MARIZ_PHOTOS.navy}
-          sizes="(min-width: 640px) 165px, 120px"
-          crop="object-[50%_0%] origin-[51%_18%] scale-[1.45] translate-y-[14%]"
+        <ArchPhoto
+          photo={MARIZ_PHOTOS.navy}
+          sizes="(min-width: 640px) 205px, 150px"
+          crop="object-[50%_0%] origin-[51%_18%] scale-[1.2] translate-x-[-5%] translate-y-[4%]"
         >
           {/* paddle held in the hand by her side: grip pinned to the hand, head tilted out */}
           <motion.div
             aria-hidden="true"
-            className="absolute left-[19%] top-[36.5%] w-[27%] origin-[50%_82%]"
+            className="absolute left-[25%] top-[33%] w-[20%] origin-[50%_82%]"
             initial={{ opacity: 0, rotate: -75 }}
             animate={{ opacity: 1, rotate: -28 }}
             transition={{ duration: 0.9, ease: EASE_LUXE, delay: at(1.8) }}
@@ -120,6 +118,14 @@ export function PhotoFan({ at }: { at: (s: number) => number }) {
             <Paddle tone="blush" className="w-full drop-shadow-md" />
           </motion.div>
         </ArchPhoto>
+      </motion.div>
+      <motion.div {...rise(at(1.1), 9)} className="relative z-0 -ml-3 w-[min(25vw,15svh,120px)] sm:w-[min(20vw,16svh,165px)] origin-bottom-left">
+        {/* she already holds a real paddle here, so no overlay */}
+        <ArchPhoto
+          photo={MARIZ_PHOTOS.paddle}
+          sizes="(min-width: 640px) 165px, 120px"
+          crop="object-[50%_0%] origin-[48%_24%] scale-[1.45] translate-y-[8%]"
+        />
       </motion.div>
 
       {/* ball bounces in to rest at the fan's foot */}
