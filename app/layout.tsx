@@ -23,13 +23,27 @@ const script = Great_Vibes({
   display: "swap",
 });
 
+const SITE_URL = "https://marissa-60th-birthday-invitation.netlify.app";
+const DESCRIPTION =
+  "Join us for Mariz’s 60th birthday celebration at Zions Pickleball — Sunday, October 11, 2026, 5:00 PM.";
+
 export const metadata: Metadata = {
+  // Absolute URLs for the link-preview image shared on Messenger, Facebook, etc.
+  metadataBase: new URL(SITE_URL),
   title: "Pickle & Party: Mariz Turns 60!",
-  description: "Join us for Mariz’s 60th birthday celebration at Zions Pickleball.",
+  description: DESCRIPTION,
   openGraph: {
     title: "Pickle & Party: Mariz Turns 60!",
-    description: "Join us for Mariz’s 60th birthday celebration at Zions Pickleball.",
+    description: DESCRIPTION,
+    siteName: "Pickle & Party",
+    url: SITE_URL,
+    locale: "en_PH",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pickle & Party: Mariz Turns 60!",
+    description: DESCRIPTION,
   },
 };
 

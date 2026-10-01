@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pickle &amp; Party — Giveaway Stickers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Same palette as the invitation website */
+      :root {
+        --blush: #e8b4c1;
+        --rose: #d9959f;
+        --rose-deep: #b5697a;
+        --petal: #f3d0d8;
+        --sage: #a8b79a;
+        --sage-light: #c8d5b9;
+        --pistachio: #dce6c9;
+        --cream: #fff9f5;
+        --ink: #465448;
+        --ink-soft: #5f6d61;
+
+        --font-display: "Cormorant Garamond", Georgia, serif;
+        --font-sans: "DM Sans", system-ui, sans-serif;
+        --font-script: "Great Vibes", cursive;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px 24px 64px;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: var(--font-sans);
+      }
+
+      .intro {
+        max-width: 60ch;
+        margin: 0 auto 36px;
+        text-align: center;
+      }
+      .intro h1 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 2.5rem;
+        margin: 0 0 6px;
+      }
+      .intro p {
+        color: var(--ink-soft);
+        line-height: 1.6;
+        margin: 6px 0;
+      }
+
+      .previews {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        margin-bottom: 48px;
+      }
+      .preview figcaption {
+        margin-top: 12px;
+        text-align: center;
+        font-size: 0.8rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- the sticker ---------- */
+      .sticker {
+        display: block;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+      }
+      .sticker.pink {
+        --edge: var(--blush);
+        --wash: var(--petal);
+        --ring: var(--sage);
+        --accent: var(--rose-deep);
+        --ball: var(--pistachio);
+        --ball-shade: var(--sage);
+        --ball-hole: #8e9f80;
+        --paddle-face: var(--petal);
+        --paddle-edge: var(--rose);
+      }
+      .sticker.sage {
+        --edge: var(--sage);
+        --wash: var(--pistachio);
+        --ring: var(--blush);
+        --accent: var(--rose-deep);
+        --ball: var(--petal);
+        --ball-shade: var(--rose);
+        --ball-hole: #c98492;
+        --paddle-face: var(--sage-light);
+        --paddle-edge: var(--sage);
+      }
+
+      .arc-top {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 34px;
+        letter-spacing: 9px;
+        fill: var(--ink);
+      }
+      .arc-bottom {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 21px;
+        letter-spacing: 4.5px;
+        fill: var(--ink-soft);
+      }
+      .script {
+        font-family: var(--font-script);
+        font-size: 74px;
+        fill: var(--accent);
+      }
+      .caps {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 6px;
+        fill: var(--ink-soft);
+      }
+      .name {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-style: italic;
+        font-size: 36px;
+        font-variant-numeric: lining-nums;
+        fill: var(--ink);
+      }
+
+      /* ---------- print sheet: 15 stickers on A4 ---------- */
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 18mm 20mm;
+        background: #fff;
+        display: grid;
+        grid-template-columns: repeat(3, 50mm);
+        grid-auto-rows: 50mm;
+        gap: 5mm;
+        justify-content: center;
+        align-content: start;
+        box-shadow: 0 24px 60px -30px rgb(70 84 72 / 0.45);
+      }
+      .sheet .sticker {
+        width: 50mm;
+        height: 50mm;
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        body {
+          padding: 0;
+          background: #fff;
+        }
+        .intro,
+        .previews {
+          display: none;
+        }
+        .sheet {
+          box-shadow: none;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro">
+      <h1>Pickle &amp; Party giveaway stickers</h1>
+      <p>Mariz' 60th Birthday · 2 inch (50 mm) round · two colourways.</p>
+      <p>Print this page (A4, actual size, background graphics on) for a sheet of 15.</p>
+    </div>
+
+    <div class="previews" id="previews"></div>
+    <div class="sheet" id="sheet"></div>
+
+    <template id="sticker-template">
+      <svg class="sticker" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img"
+        aria-label="Pickle and Party — thank you for celebrating, Mariz turns 60, October 11 2026 at Zions Pickleball">
+        <defs>
+          <path id="arc-top-path" d="M 78 300 A 222 222 0 0 1 522 300" />
+          <path id="arc-bottom-path" d="M 70 300 A 230 230 0 0 0 530 300" />
+          <radialGradient id="wash-grad" cx="50%" cy="38%" r="68%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="55%" stop-color="var(--cream)" />
+            <stop offset="100%" stop-color="var(--wash)" />
+          </radialGradient>
+        </defs>
+
+        <!-- rim + face -->
+        <circle cx="300" cy="300" r="298" fill="var(--edge)" />
+        <circle cx="300" cy="300" r="281" fill="url(#wash-grad)" />
+        <circle cx="300" cy="300" r="281" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9" />
+        <circle cx="300" cy="300" r="249" fill="none" stroke="var(--ring)" stroke-width="2" stroke-dasharray="2 11"
+          stroke-linecap="round" />
+
+        <!-- curved wording -->
+        <text class="arc-top" text-anchor="middle">
+          <textPath href="#arc-top-path" startOffset="50%">PICKLE &amp; PARTY</textPath>
+        </text>
+        <text class="arc-bottom" text-anchor="middle">
+          <textPath href="#arc-bottom-path" startOffset="50%">OCTOBER 11, 2026 · ZIONS PICKLEBALL</textPath>
+        </text>
+
+        <!-- Mariz, in a circular medallion -->
+        <clipPath id="photo-clip">
+          <circle cx="300" cy="248" r="116" />
+        </clipPath>
+        <circle cx="300" cy="248" r="116" fill="#ffffff" />
+        <image class="photo" clip-path="url(#photo-clip)" href="" x="0" y="0" width="0" height="0" />
+        <circle cx="300" cy="248" r="116" fill="none" stroke="var(--edge)" stroke-width="7" />
+        <circle cx="300" cy="248" r="123" fill="none" stroke="var(--ring)" stroke-width="1.6" stroke-dasharray="2 8"
+          stroke-linecap="round" />
+
+        <!-- paddle with a pickleball, tucked beside the medallion -->
+        <g transform="translate(446 344) scale(0.6)">
+          <g transform="rotate(20) scale(0.8) translate(-50 -86)">
+            <rect x="5" y="4" width="90" height="106" rx="36" fill="var(--paddle-edge)" />
+            <rect x="10.5" y="9.5" width="79" height="95" rx="31" fill="var(--paddle-face)" />
+            <rect x="21" y="20" width="58" height="74" rx="23" fill="none" stroke="#fff" stroke-opacity="0.75"
+              stroke-width="2" />
+            <ellipse cx="34" cy="32" rx="10" ry="5" fill="#fff" opacity="0.5" transform="rotate(-35 34 32)" />
+            <path d="M37 106 Q50 118 63 106 L61 122 H39 Z" fill="var(--paddle-edge)" />
+            <rect x="39" y="118" width="22" height="46" rx="8" fill="var(--ink)" />
+            <path d="M39.5 127 L60.5 121 M39.5 135 L60.5 129 M39.5 143 L60.5 137" stroke="#fff" stroke-opacity="0.35"
+              stroke-width="2.4" stroke-linecap="round" />
+            <rect x="36" y="160" width="28" height="9" rx="4.5" fill="var(--paddle-edge)" />
+          </g>
+          <g transform="translate(-46 30)">
+            <circle cx="2" cy="2" r="31" fill="var(--ball-shade)" />
+            <circle cx="0" cy="0" r="29" fill="var(--ball)" />
+            <g fill="var(--ball-hole)" opacity="0.7">
+              <circle cx="0" cy="0" r="3.2" />
+              <circle cx="-14" cy="0" r="2.9" />
+              <circle cx="14" cy="0" r="2.9" />
+              <circle cx="-8" cy="-12" r="2.9" />
+              <circle cx="8" cy="-12" r="2.9" />
+              <circle cx="-8" cy="12" r="2.9" />
+              <circle cx="8" cy="12" r="2.9" />
+              <circle cx="0" cy="-20" r="2.5" />
+              <circle cx="0" cy="20" r="2.5" />
+            </g>
+            <ellipse cx="-11" cy="-12" rx="9" ry="5" fill="#fff" opacity="0.55" transform="rotate(-32 -11 -12)" />
+          </g>
+        </g>
+
+        <!-- message -->
+        <text class="script" x="300" y="432" text-anchor="middle">Thank you!</text>
+        <text class="name" x="300" y="474" text-anchor="middle">Mariz Turns 60</text>
+      </svg>
+    </template>
+
+    <script>
+      /*
+       * Each colourway carries a different photo of Mariz. The x/y/width/height
+       * place the photo behind the circular medallion so her face sits just
+       * above the middle; her white studio backdrop blends into the medallion.
+       */
+      const PHOTOS = {
+        pink: { href: "mariz-paddle.png", x: 91.5, y: 82, width: 430, height: 574 },
+        sage: { href: "mariz-polo.png", x: 92, y: 128, width: 383, height: 511 },
+      };
+
+      const tpl = document.getElementById("sticker-template");
+      let n = 0;
+      // Each copy needs its own defs ids, otherwise every sticker would paint
+      // with the first copy's gradient (and its colourway).
+      const make = (tone) => {
+        const svg = tpl.content.firstElementChild.cloneNode(true);
+        const suffix = `-${n++}`;
+        const ids = [...svg.querySelectorAll("[id]")].map((el) => el.id);
+        svg.querySelectorAll("*").forEach((el) => {
+          if (el.id) el.id += suffix;
+          for (const attr of [...el.attributes]) {
+            let value = attr.value;
+            for (const old of ids) {
+              value = value.replace(`url(#${old})`, `url(#${old}${suffix})`);
+              if (attr.name === "href" && value === `#${old}`) value = `#${old}${suffix}`;
+            }
+            if (value !== attr.value) el.setAttribute(attr.name, value);
+          }
+        });
+        const photo = PHOTOS[tone];
+        const img = svg.querySelector(".photo");
+        img.setAttribute("href", photo.href);
+        for (const key of ["x", "y", "width", "height"]) img.setAttribute(key, photo[key]);
+        svg.classList.add(tone);
+        return svg;
+      };
+
+      const previews = document.getElementById("previews");
+      for (const tone of ["pink", "sage"]) {
+        const fig = document.createElement("figure");
+        fig.className = "preview";
+        fig.style.margin = "0";
+        fig.append(make(tone));
+        const cap = document.createElement("figcaption");
+        cap.textContent = tone === "pink" ? "Blush colourway" : "Sage colourway";
+        fig.append(cap);
+        previews.append(fig);
+      }
+
+      const sheet = document.getElementById("sheet");
+      for (let i = 0; i < 15; i++) sheet.append(make(i % 2 ? "sage" : "pink"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<!--
+  Source artwork for the link-preview card (what Messenger / Facebook / WhatsApp
+  show when the site is shared). Rendered to app/opengraph-image.png at 1200x630.
+  Re-render with: node tools/render-og.cjs
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blush: #e8b4c1;
+        --rose: #d9959f;
+        --rose-deep: #b5697a;
+        --petal: #f3d0d8;
+        --sage: #a8b79a;
+        --sage-light: #c8d5b9;
+        --pistachio: #dce6c9;
+        --cream: #fff9f5;
+        --ink: #465448;
+        --ink-soft: #5f6d61;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        font-family: "DM Sans", system-ui, sans-serif;
+      }
+
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background:
+          radial-gradient(60% 70% at 18% 0%, #ffffff 0%, transparent 60%),
+          radial-gradient(55% 80% at 88% 100%, var(--petal) 0%, transparent 65%),
+          radial-gradient(45% 60% at 95% 10%, var(--pistachio) 0%, transparent 70%),
+          var(--cream);
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        align-items: center;
+        padding: 58px 64px;
+        gap: 24px;
+      }
+
+      /* decorative shapes */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(0.5px);
+      }
+      .blob-1 {
+        width: 420px;
+        height: 420px;
+        left: -150px;
+        bottom: -190px;
+        background: var(--sage-light);
+        opacity: 0.55;
+      }
+      .blob-2 {
+        width: 300px;
+        height: 300px;
+        right: -90px;
+        top: -120px;
+        background: var(--blush);
+        opacity: 0.5;
+      }
+      .arcs {
+        position: absolute;
+        inset: -22% -10%;
+        color: var(--rose);
+        opacity: 0.22;
+      }
+
+      .copy {
+        position: relative;
+        max-width: 640px;
+      }
+      .eyebrow {
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 7px;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      h1 {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        font-size: 104px;
+        line-height: 0.92;
+        letter-spacing: -1px;
+        color: var(--ink);
+        margin-top: 16px;
+      }
+      h1 .amp {
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-size: 0.8em;
+        color: var(--rose-deep);
+      }
+      .script {
+        font-family: "Great Vibes", cursive;
+        font-size: 82px;
+        line-height: 1.1;
+        color: var(--rose-deep);
+        margin-top: 2px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgb(255 255 255 / 0.82);
+        border: 1px solid var(--blush);
+        border-radius: 999px;
+        padding: 13px 22px;
+        font-size: 21px;
+        color: var(--ink);
+      }
+      .chip.sage {
+        border-color: var(--sage-light);
+      }
+      .chip svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* arched photo */
+      .frame {
+        position: relative;
+        justify-self: end;
+        width: 380px;
+        rotate: 3deg;
+      }
+      .frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        translate: 16px 14px;
+        border: 1px solid rgb(181 105 122 / 0.4);
+        border-radius: 999px 999px 32px 32px;
+        z-index: -1;
+      }
+      .frame .mat {
+        background: #fff;
+        border-radius: 999px 999px 32px 32px;
+        padding: 16px;
+        box-shadow: 0 34px 70px -26px rgb(181 105 122 / 0.6);
+      }
+      .frame .window {
+        position: relative;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        border-radius: 999px 999px 20px 20px;
+        background: #fff;
+      }
+      .frame img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 0%;
+        transform-origin: 48% 24%;
+        scale: 1.3;
+        translate: 0 9%;
+      }
+      .ball,
+      .paddle {
+        position: absolute;
+      }
+      .ball {
+        width: 92px;
+        left: -46px;
+        top: 54px;
+        rotate: -12deg;
+      }
+      .paddle {
+        width: 74px;
+        right: -34px;
+        bottom: 40px;
+        rotate: 18deg;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <svg class="arcs" viewBox="0 0 600 600" fill="none" preserveAspectRatio="xMidYMid meet">
+        <circle cx="300" cy="300" r="290" stroke="currentColor" stroke-width="1.5" />
+        <circle cx="300" cy="300" r="220" stroke="currentColor" stroke-width="1" stroke-dasharray="2 10" />
+        <circle cx="300" cy="300" r="150" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+
+      <div class="copy">
+        <p class="eyebrow">A 60th Birthday Invitation</p>
+        <h1>Pickle <span class="amp">&amp;</span> Party</h1>
+        <p class="script">Mariz Turns 60!</p>
+        <div class="chips">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b5697a" stroke-width="1.8" stroke-linecap="round">
+              <rect x="3" y="4.5" width="18" height="17" rx="3" />
+              <path d="M3 10h18M8 2.5v4M16 2.5v4" />
+            </svg>
+            Sunday, October 11, 2026 · 5:00 PM
+          </span>
+          <span class="chip sage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5f6d61" stroke-width="1.8" stroke-linecap="round">
+              <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" />
+              <circle cx="12" cy="10" r="2.6" />
+            </svg>
+            Zions Pickleball
+          </span>
+        </div>
+      </div>
+
+      <figure class="frame">
+        <div class="mat">
+          <div class="window"><img src="../lib/images/1.png" alt="" /></div>
+        </div>
+
+        <svg class="ball" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="47" fill="#A8B79A" />
+          <circle cx="47" cy="46.5" r="44" fill="#DCE6C9" />
+          <g fill="#8E9F80" opacity="0.7">
+            <circle cx="50" cy="50" r="4.6" />
+            <circle cx="30" cy="50" r="4.2" />
+            <circle cx="70" cy="50" r="4.2" />
+            <circle cx="40" cy="33" r="4.2" />
+            <circle cx="60" cy="33" r="4.2" />
+            <circle cx="40" cy="67" r="4.2" />
+            <circle cx="60" cy="67" r="4.2" />
+          </g>
+          <ellipse cx="33" cy="27" rx="13" ry="7" fill="#fff" opacity="0.55" transform="rotate(-32 33 27)" />
+        </svg>
+
+        <svg class="paddle" viewBox="0 0 100 172" aria-hidden="true">
+          <rect x="5" y="4" width="90" height="106" rx="36" fill="#D9959F" />
+          <rect x="10.5" y="9.5" width="79" height="95" rx="31" fill="#F3D0D8" />
+          <rect x="21" y="20" width="58" height="74" rx="23" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" />
+          <path d="M37 106 Q50 118 63 106 L61 122 H39 Z" fill="#D9959F" />
+          <rect x="39" y="118" width="22" height="46" rx="8" fill="#465448" />
+          <rect x="36" y="160" width="28" height="9" rx="4.5" fill="#D9959F" />
+        </svg>
+      </figure>
+    </div>
+  </body>
+</html>
